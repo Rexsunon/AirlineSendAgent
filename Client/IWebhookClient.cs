@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using TravelAgentWeb.Dtos;
+using AirlineSendAgent.Dtos;
 
 namespace AirlineSendAgent.Client
 {
