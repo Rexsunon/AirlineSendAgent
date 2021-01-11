@@ -19,6 +19,8 @@ namespace AirlineSendAgent
                         opt.UseMySql(context.Configuration.GetConnectionString("AirlineConnection"), 
                         MySqlServerVersion.AutoDetect(context.Configuration.GetConnectionString("AirlineConnection")))
                     );
+
+                    services.AddHttpClient();
                 }).Build();
 
             host.Services.GetService<IAppHost>().Run();
