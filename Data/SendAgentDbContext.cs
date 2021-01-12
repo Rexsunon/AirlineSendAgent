@@ -10,6 +10,6 @@ namespace AirlineSendAgent.Data
             
         }
 
-        public DbSet<WebhookSubscription> webhookSubscriptions { get; set; }
+        public DbSet<WebhookSubscription> WebhookSubscriptions { get; set; }
     }
 }

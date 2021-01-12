@@ -58,11 +58,15 @@ namespace AirlineSendAgent.App
                         FlightCode = message.FlightCode
                     };
 
-                    foreach(var whs in _context.webhookSubscriptions.Where(subs => subs.WebhookType.Equals(message.WeebhookType)))
+                    Console.WriteLine(webhookToSend);
+                    
+                    foreach(var whs in _context.WebhookSubscriptions.Where(subs => subs.WebhookType.Equals(message.WeebhookType)))
                     {
                         webhookToSend.WebhookURI = whs.WebhookURI;
                         webhookToSend.Secret = whs.Secret;
                         webhookToSend.Publisher = whs.WebhookPublisher;
+
+                        Console.WriteLine(webhookToSend);
 
                         await _webhookClient.SendWebookNotificationAsync(webhookToSend);
                     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using AirlineSendAgent.App;
+using AirlineSendAgent.Client;
 using AirlineSendAgent.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -15,6 +16,7 @@ namespace AirlineSendAgent
             var host = Host.CreateDefaultBuilder()
                 .ConfigureServices((context, services) => {
                     services.AddSingleton<IAppHost, AppHost>();
+                    services.AddSingleton<IWebhookClient, WebhookClient>();
                     services.AddDbContext<SendAgentDbContext>(opt => 
                         opt.UseMySql(context.Configuration.GetConnectionString("AirlineConnection"), 
                         MySqlServerVersion.AutoDetect(context.Configuration.GetConnectionString("AirlineConnection")))
